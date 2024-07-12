@@ -68,8 +68,8 @@ export const POST = async (req: NextRequest) => {
       const response = await octokit.request(
         `PUT /repos/{owner}/{repo}/contents/{path}`,
         {
-          owner: "cuzeth",
-          repo: "test",
+          owner: process.env.REPO_OWNER as string,
+          repo: process.env.GITHUB_REPO as string,
           path: fileName,
           message: `Upload ${fileName}`,
           content,
